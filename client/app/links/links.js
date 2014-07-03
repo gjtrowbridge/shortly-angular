@@ -12,4 +12,11 @@ angular.module('shortly.links', [])
     });
   };
   $scope.getLinks();
+})
+
+.directive('ngShortenedLink', function() {
+  return {
+    restrict: 'E',
+    template:  '<a href="{{ link.base_url + \'/api/links/\' + link.code }}"> {{ link.url }} </a><span>Visits: {{ link.visits }}</span>'
+  };
 });
