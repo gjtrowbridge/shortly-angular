@@ -1,9 +1,16 @@
 <div id='signup'>
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+    <span ng-if='signupForm.username.$error.minlength || signupForm.username.$error.maxlength'>Username must be between four and ten characters</span>
+    <span ng-if='signupForm.username.$error.required'>Please enter username</span>
+    <input name='username' type='text'ng-model='user.username' ng-minlength='4' ng-maxlength='10' required>
+
+    <span ng-if='signupForm.password.$error.minlength || signupForm.password.$error.maxlength'>Password must be between four and ten characters</span>
+    <span ng-if='signupForm.password.$error.required'>Please enter password</span>
+    <input name='password' type="password" ng-model='user.password' ng-minlength='4' ng-maxlength='10' required>
+
+    <button ng-disabled='signupForm.$invalid'>Sign Up</button>
   </form>
   <a href="#/signin">Already have an account? Signin ...</a>
 </div>
+

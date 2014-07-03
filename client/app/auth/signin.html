@@ -1,9 +1,15 @@
 <div id='signin'>
-  <h1>sigin</h1>
-  <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signin</button>
+  <h1>Sign In</h1>
+  <form name="signinForm" ng-submit='signin()' novalidate>
+    <span ng-if='signinForm.username.$error.minlength || signinForm.username.$error.maxlength'>Username must be between four and ten characters</span>
+    <span ng-if='signinForm.username.$error.required'>Please enter username</span>
+    <input name='username' type='text'ng-model='user.username' ng-minlength='4' ng-maxlength='10' required>
+
+    <span ng-if='signinForm.password.$error.minlength || signinForm.password.$error.maxlength'>Password must be between four and ten characters</span>
+    <span ng-if='signinForm.password.$error.required'>Please enter password</span>
+    <input name='password' type="password" ng-model='user.password' ng-minlength='4' ng-maxlength='10' required>
+
+    <button ng-disabled='signinForm.$invalid'>Sign In</button>
   </form>
   <a href="#/signup">Don't have an account? Signup ...</a>
 </div>
