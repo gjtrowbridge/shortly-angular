@@ -5,7 +5,7 @@
   <label for="searchBox">Search</label>
   <input id="searchBox" ng-model="search" />
   <ul>
-    <li ng-repeat="link in data.links | orderBy:'-visits' | filter:search">
+    <li class="fx-fade-down" ng-repeat="link in data.links | orderBy:'-visits' | filter:search">
       <ng-shortened-link>
     </li>
   </ul>

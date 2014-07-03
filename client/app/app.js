@@ -1,5 +1,7 @@
 angular.module('shortly', [
   'shortly.services',
+  'ngAnimate',
+  'fx.animations',
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
