@@ -1,4 +1,6 @@
 <div id='container' ng-controller="ShortenController">
+  <a href='/#/links'>Links</a>
+  <p ng-if='message'>{{message}}</p>
   <input ng-model="link.url">
   <input type="submit" ng-click="addLink()">
 </div>
