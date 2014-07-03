@@ -1,7 +1,9 @@
 <div id='container'>
   <ul>
     <li ng-repeat='link in data.links'>
-      {{link}}
+      <a href={{link['base_url']+'/'+link['code']}}> {{link['url']}} </a>
     </li>
   </ul>
 </div>
+
+<!-- {"code":"738dd","url":"http://www.google.com","visits":0,"base_url":"http://localhost:8000","title":"Google","_id":"53b496083e8455412e592aec","__v":0} -->
