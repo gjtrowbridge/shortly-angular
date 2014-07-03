@@ -1,8 +1,13 @@
 <div id='container'>
-  <a href='/#/shorten'>Shorten</a>
+  <div>
+    <a href='/#/shorten'>Shorten</a>
+  </div>
+  <label for="searchBox">Search</label>
+  <input id="searchBox" ng-model="search" />
   <ul>
-    <li ng-repeat='link in data.links'>
-      <a href={{link['base_url']+'/api/links/'+link['code']}}> {{link['url']}} </a>
+    <li ng-repeat="link in data.links | orderBy:'-visits' | filter:search">
+      <a href="{{ link.base_url + '/api/links/' + link.code }}"> {{ link.url }} </a>
+      <span>Visits: {{ link.visits }}</span>
     </li>
   </ul>
 </div>

@@ -12,7 +12,6 @@ angular.module('shortly.shorten', [])
         $scope.message='Successfully added URL: ' + $scope.link.url;
         $scope.link.url='';
       });
-
     } else {
       console.log('Must enter a valid URL!')
       $scope.message='Must enter a valid URL!';
