@@ -1,8 +1,14 @@
 <div id='container' ng-controller="ShortenController">
   <a href='/#/links'>Links</a>
   <p ng-if='message'>{{message}}</p>
-  <input ng-model="link.url">
-  <input type="submit" ng-click="addLink()">
+  <form name="shortenForm">
+    <span class="error" ng-if="pattern">Invalid URL!</span>
+    <input
+      ng-model="link.url"
+      ng-pattern="rValidUrl"
+    / >
+    <input type="submit" ng-click="addLink()">
+  </form>
 </div>
 
 
